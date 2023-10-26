@@ -1,6 +1,9 @@
 * {
     font-family: sans-serif;
     box-sizing: border-box;
+    font-size: 15px;
+    font-style: oblique;
+    font-weight: bold;
 }
 
 body {
@@ -23,7 +26,7 @@ body {
     min-width: 30%;
 }
 
-.search button, img{
+.search button, .search img{
     height: 75%;
     margin: 2px;
 }
@@ -37,7 +40,6 @@ body {
     width: 60%;
     padding: 3px 35px;
     border-radius: 10px;
-    max-width: 470px;
     margin: 0 auto; /* Center the container */
 }
 
@@ -64,3 +66,29 @@ body {
     grid-column: 1 / span 2; /* Span two grid columns to take up the full width of the card */
     display: flex; /* Change the display property to flex */
 }
+
+.other-data{
+    display: flex;
+    border: 1px solid black;
+    margin-block: 0.4rem;
+    border-radius: 10px;
+}
+
+.other-data img{
+    height: 100%;
+    width: 10%;
+    margin-block: auto;
+}
+
+.data-set{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    margin-inline: 10px;
+}
+
+footer{
+    position: relative;
+    text-align: center;
+}
+
