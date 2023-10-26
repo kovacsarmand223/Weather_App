@@ -34,14 +34,33 @@ body {
 
 .container {
     background-color: aquamarine;
-    width: 50%;
+    width: 60%;
     padding: 3px 35px;
-    border-radius: 30px;
+    border-radius: 10px;
     max-width: 470px;
     margin: 0 auto; /* Center the container */
 }
 
 .data{
-    margin: 2px 2px;
     border: 1px solid black;
+    display: flex;
+    gap: 7%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    min-width: 3rem;
+}
+
+.card{
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 50% 50%;
+}
+
+.today {
+    border: 1px solid black;
+    width: 100%; /* Set the width to 100% for the "data today" div */
+    height: 100%;
+    gap: 2rem;
+    grid-column: 1 / span 2; /* Span two grid columns to take up the full width of the card */
+    display: flex; /* Change the display property to flex */
 }
