@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="device-width, initial-scale=1.0">
+    <title>OvercastApp</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/style.css">
+    <!-- defer -> loading before html page -->
+    <script defer src="/JS/weather.js"></script>
+    <!--favicon, meg nincs megvalositva-->
+    <link rel="shortcut icon" href="../Assets/favicon.ico" type="image/x-icon" />
+</head>
+
+<body> 
+    <header>
+            
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="search">
+                <input type="text" placeholder="Enter city">
+                <button>
+                    <img src="/ASSETS/icons8-search-48.png">
+                </button>
+            </div>
+            <h1>City Weather</h1>
+            <div class="card">
+                <div class="today">
+                    <p>Today</p>
+                    <p>(Day)</p>
+                    <div class="data-set">
+                        <p>Degrees(Now)</p>
+                        <i>16°C</i>
+                    </div>
+                    <img src="/ASSETS/icons8-sun-48.png">
+                    <div class="data-set">
+                        <p>Wind speed</p>
+                        <i>15km/h</i>
+                    </div>
+                    <div class="data-set">
+                        <p>Humidity</p>
+                        <i>80%</i>
+                    </div>
+                    <div class="data-set">
+                        <p>Chance of Rain</p>
+                        <i>10%</i>
+                    </div>
+                </div>
+                <div class="data">
+                    <p>Monday</p>
+                    <i>19°C</i>
+                    <img src="/ASSETS/icons8-cloud-48.png">
+                    <div class="data-set">
+                        <p>UV index</p>
+                        <i>Low</i>
+                    </div>
+                </div>
+                <div class="data today-plus-two">
+                    <p>Tuesday</p>
+                    <img src="/ASSETS/icons8-moon-and-stars-48.png">
+                    <i>19°C</i>
+                </div>
+                <div class="data today-plus-three">
+                    <p>Wednesday</p>
+                </div>
+                <div class="data today-plus-four">
+                    <p>Thursday</p>
+                </div>
+                <div class="data today-plus-five">
+                    <p>Friday</p>
+                </div>
+                <div class="data today-plus-six">
+                    <p>Saturday</p>
+                </div>
+            </div>
+            <hr color="black"/>
+            <!--24 oras elorejelzes a jelenlegi oratol reszletesen-->
+            <div class="other-data">
+                <div class="data-set">
+                    <p>Today</p>
+                    <i>3 PM</i>
+                </div>
+                <div class="data-set">
+                    <p>Degrees</p>
+                    <i>19 &deg; C</i>
+                </div>
+                <img src="/ASSETS/icons8-sun-48.png">
+                <div class="data-set">
+                    <p>Wind speed</p>
+                    <i>10km/h</i>
+                </div>
+                <div class="data-set">
+                    <p>UV index</p>
+                    <i>Low</i>
+                </div>
+                <div class="data-set">
+                    <p>Humidity</p>
+                    <i>81%</i>
+                </div>
+                <div class="data-set">
+                    <p>Chance of Rain</p>
+                    <i>18%</i>
+                </div>
+            </div>
+            <div class="other-data">
+                <div class="data-set">
+                    <p>Today</p>
+                    <i>4 PM</i>
+                </div>
+                <img src="/ASSETS/icons8-cloud-48.png">
+            </div>
+            <div class="other-data">
+                <p>Today</p>
+                <i>5 PM</i>
+            </div>
+            <div class="other-data">
+                <p>Today</p>
+                <i>6 PM</i>
+            </div>
+            <div class="other-data">
+                <p>Today</p>
+                <i>7 PM</i>
+            </div>
+            <div class="other-data">
+                <p>Today</p>
+                <i>8 PM</i>
+            </div>
+            <div class="other-data">
+                <p>Today</p>
+                <i>9 PM</i>
+            </div>
+            <div class="other-data">
+                <p>Today</p>
+                <i>10 PM</i>
+            </div>
+            <div class="other-data">
+                <p>Today</p>
+                <i>11 PM</i>
+            </div>
+            <div class="other-data">
+                <p>Next Day</p>
+                <i>0 AM</i>
+            </div>
+            <div class="other-data">
+                <p>Next Day</p>
+                <i>1 AM</i>
+            </div>
+            <div class="other-data">
+                <div class="data-set">
+                    <p>Next Day</p>
+                    <i>2 AM</i>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <template id="today-data-card-temp">
+        <div class="today">
+            <p today-day></p>
+            <p today-isday></p>
+            <div class="data-set">
+                <p today-temp></p>
+                <i data-temp><span>&deg;</span></i>
+            </div>
+            <img today-icon>
+            <div class="data-set">
+                <p today-windspeed></p>
+                <i data-windspeed></i>
+            </div>
+            <div class="data-set">
+                <p today-humidity></p>
+                <i today-humidity-perc></i>
+            </div>
+            <div class="data-set">
+                <p today-rainchance></p>
+                <i data-rainchance></i>
+            </div>
+        </div>
+    </template>
+
+    <template id="day-data-card-temp">
+        <div class="data">
+            <p day-data></p>
+            <i day-data-temp><span>&deg;</span></i>
+            <img day-data-img>
+            <div class="data-set">
+                <p day-data-uv></p>
+                <i day-data-uvindex></i>
+            </div>
+        </div>
+    </template>
+
+    <template>
+        <div class="other-data">
+            <div class="data-set">
+                <p other-day-data></p>
+                <i other-hour-data></i>
+            </div>
+            <div class="data-set">
+                <p other-degrees></p>
+                <i other-data-degrees><span>&deg;</span></i>
+            </div>
+            <img other-img>
+            <div class="data-set">
+                <p other-windspeed></p>
+                <i other-data-windspeed></i>
+            </div>
+            <div class="data-set">
+                <p other-uv></p>
+                <i other-uv-idx></i>
+            </div>
+            <div class="data-set">
+                <p other-humidity></p>
+                <i other-humidity-perc></i>
+            </div>
+            <div class="data-set">
+                <p other-rainchance></p>
+                <i other-rainchance-perc></i>
+            </div>
+        </div>
+    </template>
+
+    <!--lablec-->
+    <footer>
+        <p>OvercastApp &copy; 2023</p>
+        <p>Kovács Armand</p>
+    </footer>
+    
+</body>
+</html>

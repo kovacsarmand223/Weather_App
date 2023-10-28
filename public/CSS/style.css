@@ -37,16 +37,23 @@ body {
 
 .container {
     background-color: aquamarine;
-    width: 60%;
+    min-width: 550px;
+    max-width: 670px;
     padding: 3px 35px;
     border-radius: 10px;
     margin: 0 auto; /* Center the container */
 }
 
+.container h1{
+    text-align: center;
+    font-size: 3vh;
+}
+
 .data{
     border: 1px solid black;
     display: flex;
-    gap: 7%;
+    align-items: center;
+    gap: 10%;
     padding: 0.5rem;
     border-radius: 10px;
     min-width: 3rem;
@@ -60,24 +67,31 @@ body {
 
 .today {
     border: 1px solid black;
-    width: 100%; /* Set the width to 100% for the "data today" div */
-    height: 100%;
-    gap: 2rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+    display: flex;
+    gap: 1%;
     grid-column: 1 / span 2; /* Span two grid columns to take up the full width of the card */
-    display: flex; /* Change the display property to flex */
+    align-items: center;
 }
 
 .other-data{
     display: flex;
     border: 1px solid black;
+    gap: 0.3%;
     margin-block: 0.4rem;
     border-radius: 10px;
+    min-width: 190px;
 }
 
-.other-data img{
-    height: 100%;
-    width: 10%;
+.other-data img, .today img{
+    width: 2px + 2vw;
     margin-block: auto;
+}
+
+.other-data i{
+    margin-block: auto;
+    padding-right: 10px;
 }
 
 .data-set{
@@ -85,6 +99,10 @@ body {
     flex-direction: column;
     padding-bottom: 10px;
     margin-inline: 10px;
+}
+
+.other-data i, .other-data p, .today i, .today p{
+    white-space: nowrap;
 }
 
 footer{
