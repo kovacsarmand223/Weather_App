@@ -6,9 +6,11 @@
     <title>OvercastApp</title>
     <link rel="stylesheet" type="text/css" href="/CSS/style.css">
     <!-- defer -> loading before html page -->
-    <script defer src="/JS/weather.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKSCZcDT33v688RBYZZ8FdyG2VvhZmrkc&libraries=places&callback=initMap">
+    </script>
+    <script defer src="JS/weather.js"></script>
     <!--favicon, meg nincs megvalositva-->
-    <link rel="shortcut icon" href="../Assets/favicon.ico" type="image/x-icon" />
+    <!--favicon, meg nincs megvalositva<link rel="shortcut icon" href="/public/ASSETS/" type="image/x-icon" /> -->
 </head>
 
 <body> 
@@ -19,7 +21,7 @@
     <main>
         <div class="container">
             <div class="search">
-                <input type="text" placeholder="Enter city">
+                <input type="text" placeholder="Enter city" data-search>
                 <button>
                     <img src="/ASSETS/icons8-search-48.png">
                 </button>
