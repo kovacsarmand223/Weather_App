@@ -22,7 +22,7 @@
         <div class="container">
             <div class="search">
                 <input type="text" placeholder="Enter city" data-search>
-                <button>
+                <button data-search-btn>
                     <img src="/ASSETS/icons8-search-48.png">
                 </button>
             </div>
@@ -30,23 +30,23 @@
             <div class="card">
                 <div class="today">
                     <p>Today</p>
-                    <p>(Day)</p>
+                    <p>(<p data-is-day>Day</p>)</p>
                     <div class="data-set">
                         <p>Degrees(Now)</p>
-                        <i>16°C</i>
+                        <i><i data-curr-temp></i><span> &deg;C</span></i>
                     </div>
-                    <img src="/ASSETS/icons8-sun-48.png">
+                    <img data-curr-img src="">
                     <div class="data-set">
                         <p>Wind speed</p>
-                        <i>15km/h</i>
+                        <i><i data-curr-windspeed></i> km/h</i>
                     </div>
                     <div class="data-set">
                         <p>Humidity</p>
-                        <i>80%</i>
+                        <i><i data-curr-humidity></i>%</i>
                     </div>
                     <div class="data-set">
                         <p>Chance of Rain</p>
-                        <i>10%</i>
+                        <i><i data-curr-rainchance></i>%</i>
                     </div>
                 </div>
                 <div class="data">
@@ -77,7 +77,7 @@
                 </div>
             </div>
             <hr color="black"/>
-            <!--24 oras elorejelzes a jelenlegi oratol reszletesen-->
+            <!--72 oras elorejelzes a jelenlegi oratol reszletesen-->
             <div class="other-data">
                 <div class="data-set">
                     <p>Today</p>
@@ -157,30 +157,6 @@
         </div>
     </main>
     
-    <template id="today-data-card-temp">
-        <div class="today">
-            <p today-day></p>
-            <p today-isday></p>
-            <div class="data-set">
-                <p today-temp></p>
-                <i data-temp><span>&deg;</span></i>
-            </div>
-            <img today-icon>
-            <div class="data-set">
-                <p today-windspeed></p>
-                <i data-windspeed></i>
-            </div>
-            <div class="data-set">
-                <p today-humidity></p>
-                <i today-humidity-perc></i>
-            </div>
-            <div class="data-set">
-                <p today-rainchance></p>
-                <i data-rainchance></i>
-            </div>
-        </div>
-    </template>
-
     <template id="day-data-card-temp">
         <div class="data">
             <p day-data></p>

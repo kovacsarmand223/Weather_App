@@ -15,8 +15,9 @@
 
 const asd = 0;
 const searchElement = document.querySelector('[data-search]')
-const searchBox = new google.maps.places.SearchBox(searchElement)
-searchBox.addListener('places_changed', () =>{
+const searchBox = new google.maps.places.SearchBox(searchElement);
+const searchBtn = document.querySelector('[data-search-btn]');
+document.querySelector('[data-search-btn]').onclick = function() {
     const place = searchBox.getPlaces()[0];
     if (place == null) return;
     const latitude = place.geometry.location.lat()
@@ -34,15 +35,47 @@ searchBox.addListener('places_changed', () =>{
             longitude: longitude,
         })
     }).then(res => res.json()).then(data => {
-        console.log(data)
+        //this code will only be executed when there was any data sent to the browser
+        //e.q. when the user searches for a city
+        console.log("Data received:", data);
         //setWeatherData(data, place.formatted_address)
+        renderWeather(data);
     })
-})
+};
 
-function renderWeather(){
-    
+function renderWeather({current, daily, hourly}){
+    renderCurrWeather(current)
+    // renderDailyWeather(daily)
+    // renderHourlyWeather(hourly)
 }
 
-function setWeatherData(data, place){
+function setValue(selector, val, {parent = document} = {}){
+    parent.querySelector(`[data-${selector}]`).textContent = val;
+}
+
+ function setIcon(selector, iconCode, isday, {parent = document} = {}){
+    if(isday == 1){
+        dayparam = "Day";
+    }else{
+        dayparam = "Night";
+    }
+     parent.querySelector(`[data-${selector}]`).setAttribute('src', `/ASSETS/${iconCode}_${dayparam}.png`);
+ }
+
+function renderCurrWeather(current){
+    setValue("curr-temp", current.curr_temp);
+    setValue("is-day", current.isday == 1 ? "Day" : "Night");
+    setValue("curr-windspeed", current.wind_speed);
+    setValue("curr-humidity", current.rel_hum);
+    setValue("curr-rainchance", current.prob);
+    setIcon("curr-img", current.icon_code, current.isday)
+    //document.querySelector("[data-curr-temp]").textContent = current.curr_temp
+}
+
+function renderDailyWeather({daily}){
+
+}
+
+function renderHourlyWeather({hourly}){
 
 }

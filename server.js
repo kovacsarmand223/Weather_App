@@ -9,6 +9,8 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
+
+axios.get('http://localhost:3000/weather', { timeout: 10000 })
 app.use(express.json());
 app.use(express.static('public'));
 
