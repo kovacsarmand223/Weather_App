@@ -26,7 +26,7 @@
                     <img src="/ASSETS/icons8-search-48.png">
                 </button>
             </div>
-            <h1>City Weather</h1>
+            <h1 data-city-name>City Weather</h1>
             <div class="card">
                 <div class="today">
                     <p>Today</p>
@@ -49,6 +49,8 @@
                         <i><i data-curr-rainchance></i>%</i>
                     </div>
                 </div>
+            </div>
+            <div class="card down" data-days>
                 <div class="data">
                     <p>Monday</p>
                     <i>19°C</i>
@@ -58,21 +60,21 @@
                         <i>Low</i>
                     </div>
                 </div>
-                <div class="data today-plus-two">
+                <div class="data">
                     <p>Tuesday</p>
                     <img src="/ASSETS/icons8-moon-and-stars-48.png">
                     <i>19°C</i>
                 </div>
-                <div class="data today-plus-three">
+                <div class="data">
                     <p>Wednesday</p>
                 </div>
-                <div class="data today-plus-four">
+                <div class="data">
                     <p>Thursday</p>
                 </div>
-                <div class="data today-plus-five">
+                <div class="data">
                     <p>Friday</p>
                 </div>
-                <div class="data today-plus-six">
+                <div class="data">
                     <p>Saturday</p>
                 </div>
             </div>
@@ -159,12 +161,12 @@
     
     <template id="day-data-card-temp">
         <div class="data">
-            <p day-data></p>
-            <i day-data-temp><span>&deg;</span></i>
-            <img day-data-img>
+            <p data-day></p>
+            <i><i data-day-temp></i><span>&deg;</span></i>
+            <img data-day-img>
             <div class="data-set">
-                <p day-data-uv></p>
-                <i day-data-uvindex></i>
+                <p>UV index</p>
+                <i data-day-uvindex></i>
             </div>
         </div>
     </template>

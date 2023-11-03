@@ -42,7 +42,7 @@ body {
 .container {
     background-color: aquamarine;
     min-width: 550px;
-    max-width: 670px;
+    max-width: 720px;
     padding: 3px 35px;
     border-radius: 10px;
     margin: 0 auto; /* Center the container */
@@ -64,9 +64,15 @@ body {
 }
 
 .card{
+    width: 100%;
     display: grid;
-    gap: 0.5rem;
+    gap: 0.3rem;
     grid-template-columns: 50% 50%;
+}
+
+.down{
+    position: relative;
+    padding-top: 5px;
 }
 
 
@@ -78,6 +84,10 @@ body {
     gap: 1%;
     grid-column: 1 / span 2; /* Span two grid columns to take up the full width of the card */
     align-items: center;
+}
+
+.day-datas{
+    display: flex;
 }
 
 .other-data{

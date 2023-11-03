@@ -39,13 +39,15 @@ document.querySelector('[data-search-btn]').onclick = function() {
         //e.q. when the user searches for a city
         console.log("Data received:", data);
         //setWeatherData(data, place.formatted_address)
+        setValue("city-name", place.name + " Weather");
         renderWeather(data);
     })
 };
 
+
 function renderWeather({current, daily, hourly}){
     renderCurrWeather(current)
-    // renderDailyWeather(daily)
+    renderDailyWeather(daily)
     // renderHourlyWeather(hourly)
 }
 
@@ -72,10 +74,38 @@ function renderCurrWeather(current){
     //document.querySelector("[data-curr-temp]").textContent = current.curr_temp
 }
 
-function renderDailyWeather({daily}){
 
+
+const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+//cloning a template
+const dayTemp = document.getElementById("day-data-card-temp");
+const days = document.querySelector("[data-days]");
+function renderDailyWeather(daily) {
+    days.innerHTML = "";
+    // Get the current date
+    const today = new Date(); 
+    //(Current day - 1) -> converting to the API response
+    const todayIndex = today.getDay() - 1;
+    for (let i = 0; i < daily.length && i < 6; i++) {
+        const day = daily[i];
+        const timestamp = new Date(day.timestamp);
+        const dayIndex = timestamp.getDay();
+        // Check if the day is equal with today then skip it
+        if(todayIndex == dayIndex){
+            continue;
+        }
+        const dayName = daysOfWeek[dayIndex];
+        const dayTempClone = dayTemp.content.cloneNode(true);
+        setValue("day", dayName, { parent: dayTempClone });
+        setValue("day-temp", day.temp_2m_max, { parent: dayTempClone });
+        setIcon("day-img", day.icon_code, 1, { parent: dayTempClone });
+        setValue("day-uvindex", day.uv_idx, { parent: dayTempClone });
+        days.append(dayTempClone);
+    }
 }
 
-function renderHourlyWeather({hourly}){
 
+function renderHourlyWeather({hourly}){
+    
 }
