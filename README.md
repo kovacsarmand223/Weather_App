@@ -11,5 +11,6 @@ Instructions:
 - reach the server on every browser by typing "localhost:3000/weather"
     
 Functions to be implemented:
-- datas of the weather broken up hour by hour from now
-- when no data is requested only the search bar is showing
+- datas of the weather broken up hour by hour from now (DONE)
+- when no data is requested only the search bar is showing (DONE)
+- UV index represented by Low/Moderate/High
