@@ -18,6 +18,24 @@ const searchElement = document.querySelector('[data-search]')
 const searchBox = new google.maps.places.SearchBox(searchElement);
 const searchBtn = document.querySelector('[data-search-btn]');
 document.querySelector('[data-search-btn]').onclick = function() {
+    const main = document.querySelector('main');
+    const search = document.getElementsByClassName('search');
+    const container = document.getElementsByClassName('container');
+
+    //footer position when div appears
+    const footer = document.querySelector('footer');
+    footer.style.position = "relative";
+
+    // Iterating through the collection of elements with the 'container' class
+    for(let i = 0; i < search.length; i++){
+        search[i].style.marginTop = "0";
+    }
+
+    for (let i = 0; i < container.length; i++) {
+    container[i].style.backgroundColor = "aquamarine";
+    }
+
+    main.style.display = 'block';
     const place = searchBox.getPlaces()[0];
     if (place == null) return;
     const latitude = place.geometry.location.lat()
@@ -48,7 +66,7 @@ document.querySelector('[data-search-btn]').onclick = function() {
 function renderWeather({current, daily, hourly}){
     renderCurrWeather(current)
     renderDailyWeather(daily)
-    // renderHourlyWeather(hourly)
+    renderHourlyWeather(hourly)
 }
 
 function setValue(selector, val, {parent = document} = {}){
@@ -75,13 +93,12 @@ function renderCurrWeather(current){
 }
 
 
-
-const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-//cloning a template
-const dayTemp = document.getElementById("day-data-card-temp");
-const days = document.querySelector("[data-days]");
 function renderDailyWeather(daily) {
+    const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    //cloning a template
+    const dayTemp = document.getElementById("day-data-card-temp");
+    const days = document.querySelector("[data-days]");
     days.innerHTML = "";
     // Get the current date
     const today = new Date(); 
@@ -106,6 +123,27 @@ function renderDailyWeather(daily) {
 }
 
 
-function renderHourlyWeather({hourly}){
-    
+function renderHourlyWeather(hourly){
+    const hourTemp = document.getElementById("data-hour-card-temp");
+    const hours = document.querySelector("[data-hours]");
+    hours.innerHTML = "";
+    dayName = "Today";
+    for(let i = 0; i < 24; i++){
+        const hour = hourly[i];
+        const hourTempClone = hourTemp.content.cloneNode(true);
+        const hourTimestamp = new Date(hour.timestamp);
+        const hourData = hourTimestamp.getHours();
+        setValue("hour-day", dayName, {parent: hourTempClone});
+        setValue("hour-hour", hourData < 12 ? `${hourData == 0 ? 12 : hourData} AM` : `${(hourData == 12 ? 24 : hourData) - 12} PM`, {parent: hourTempClone});
+        setValue("hour-degrees", hour.temp_max, {parent: hourTempClone});
+        setIcon("hour-img", hour.icon_code, hourData <= 19 && hourData >= 8  ? 1 : 0, {parent: hourTempClone});
+        setValue("hour-windspeed", hour.wind_speed, {parent: hourTempClone});
+        setValue("hour-uvidx", hour.uv_idx, {parent: hourTempClone});
+        setValue("hour-hum", hour.rel_hum, {parent: hourTempClone});
+        setValue("hour-rainchance", hour.prob, {parent: hourTempClone});
+        hours.append(hourTempClone);
+        if(hourData == 23){
+            dayName = "Tomorrow";
+        }
+    }
 }

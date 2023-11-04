@@ -64,7 +64,7 @@ function parseHourlyWeather({hourly, current}){
       icon_code: hourly.weathercode[index],
       temp_max: hourly.temperature_2m[index],
       wind_speed: hourly.windspeed_10m[index],
-      rel_him: hourly.relativehumidity_2m[index],
+      rel_hum: hourly.relativehumidity_2m[index],
       prob: hourly.precipitation_probability[index],
       uv_idx: hourly.uv_index[index]
     }

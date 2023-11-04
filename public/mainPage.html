@@ -14,18 +14,16 @@
 </head>
 
 <body> 
-    <header>
-            
-    </header>
-
+    <div class="container">
+        <div class="search">
+            <input type="text" placeholder="Enter city" data-search>
+            <button data-search-btn>
+                <img src="/ASSETS/icons8-search-48.png">
+            </button>
+        </div>
+    </div>
     <main>
         <div class="container">
-            <div class="search">
-                <input type="text" placeholder="Enter city" data-search>
-                <button data-search-btn>
-                    <img src="/ASSETS/icons8-search-48.png">
-                </button>
-            </div>
             <h1 data-city-name>City Weather</h1>
             <div class="card">
                 <div class="today">
@@ -80,80 +78,82 @@
             </div>
             <hr color="black"/>
             <!--72 oras elorejelzes a jelenlegi oratol reszletesen-->
-            <div class="other-data">
-                <div class="data-set">
+            <div data-hours>
+                <div class="other-data">
+                    <div class="data-set">
+                        <p>Today</p>
+                        <i>3 PM</i>
+                    </div>
+                    <div class="data-set">
+                        <p>Degrees</p>
+                        <i>19 &deg; C</i>
+                    </div>
+                    <img src="/ASSETS/icons8-sun-48.png">
+                    <div class="data-set">
+                        <p>Wind speed</p>
+                        <i>10km/h</i>
+                    </div>
+                    <div class="data-set">
+                        <p>UV index</p>
+                        <i>Low</i>
+                    </div>
+                    <div class="data-set">
+                        <p>Humidity</p>
+                        <i>81%</i>
+                    </div>
+                    <div class="data-set">
+                        <p>Chance of Rain</p>
+                        <i>18%</i>
+                    </div>
+                </div>
+                <div class="other-data">
+                    <div class="data-set">
+                        <p>Today</p>
+                        <i>4 PM</i>
+                    </div>
+                    <img src="/ASSETS/icons8-cloud-48.png">
+                </div>
+                <div class="other-data">
                     <p>Today</p>
-                    <i>3 PM</i>
+                    <i>5 PM</i>
                 </div>
-                <div class="data-set">
-                    <p>Degrees</p>
-                    <i>19 &deg; C</i>
-                </div>
-                <img src="/ASSETS/icons8-sun-48.png">
-                <div class="data-set">
-                    <p>Wind speed</p>
-                    <i>10km/h</i>
-                </div>
-                <div class="data-set">
-                    <p>UV index</p>
-                    <i>Low</i>
-                </div>
-                <div class="data-set">
-                    <p>Humidity</p>
-                    <i>81%</i>
-                </div>
-                <div class="data-set">
-                    <p>Chance of Rain</p>
-                    <i>18%</i>
-                </div>
-            </div>
-            <div class="other-data">
-                <div class="data-set">
+                <div class="other-data">
                     <p>Today</p>
-                    <i>4 PM</i>
+                    <i>6 PM</i>
                 </div>
-                <img src="/ASSETS/icons8-cloud-48.png">
-            </div>
-            <div class="other-data">
-                <p>Today</p>
-                <i>5 PM</i>
-            </div>
-            <div class="other-data">
-                <p>Today</p>
-                <i>6 PM</i>
-            </div>
-            <div class="other-data">
-                <p>Today</p>
-                <i>7 PM</i>
-            </div>
-            <div class="other-data">
-                <p>Today</p>
-                <i>8 PM</i>
-            </div>
-            <div class="other-data">
-                <p>Today</p>
-                <i>9 PM</i>
-            </div>
-            <div class="other-data">
-                <p>Today</p>
-                <i>10 PM</i>
-            </div>
-            <div class="other-data">
-                <p>Today</p>
-                <i>11 PM</i>
-            </div>
-            <div class="other-data">
-                <p>Next Day</p>
-                <i>0 AM</i>
-            </div>
-            <div class="other-data">
-                <p>Next Day</p>
-                <i>1 AM</i>
-            </div>
-            <div class="other-data">
-                <div class="data-set">
+                <div class="other-data">
+                    <p>Today</p>
+                    <i>7 PM</i>
+                </div>
+                <div class="other-data">
+                    <p>Today</p>
+                    <i>8 PM</i>
+                </div>
+                <div class="other-data">
+                    <p>Today</p>
+                    <i>9 PM</i>
+                </div>
+                <div class="other-data">
+                    <p>Today</p>
+                    <i>10 PM</i>
+                </div>
+                <div class="other-data">
+                    <p>Today</p>
+                    <i>11 PM</i>
+                </div>
+                <div class="other-data">
                     <p>Next Day</p>
-                    <i>2 AM</i>
+                    <i>0 AM</i>
+                </div>
+                <div class="other-data">
+                    <p>Next Day</p>
+                    <i>1 AM</i>
+                </div>
+                <div class="other-data">
+                    <div class="data-set">
+                        <p>Next Day</p>
+                        <i>2 AM</i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@
     <template id="day-data-card-temp">
         <div class="data">
             <p data-day></p>
-            <i><i data-day-temp></i><span>&deg;</span></i>
+            <i><i data-day-temp></i><span>&deg; C</span></i>
             <img data-day-img>
             <div class="data-set">
                 <p>UV index</p>
@@ -171,32 +171,32 @@
         </div>
     </template>
 
-    <template>
+    <template id="data-hour-card-temp">
         <div class="other-data">
             <div class="data-set">
-                <p other-day-data></p>
-                <i other-hour-data></i>
+                <p data-hour-day>Today</p>
+                <i data-hour-hour></i>
             </div>
             <div class="data-set">
-                <p other-degrees></p>
-                <i other-data-degrees><span>&deg;</span></i>
+                <p>Degrees</p>
+                <i><i data-hour-degrees></i><span>&deg; C</span></i>
             </div>
-            <img other-img>
+            <img data-hour-img>
             <div class="data-set">
-                <p other-windspeed></p>
-                <i other-data-windspeed></i>
-            </div>
-            <div class="data-set">
-                <p other-uv></p>
-                <i other-uv-idx></i>
+                <p>Windspeed</p>
+                <i><i data-hour-windspeed></i> km/h</i>
             </div>
             <div class="data-set">
-                <p other-humidity></p>
-                <i other-humidity-perc></i>
+                <p other-uv>UV index</p>
+                <i data-hour-uvidx></i>
             </div>
             <div class="data-set">
-                <p other-rainchance></p>
-                <i other-rainchance-perc></i>
+                <p other-humidity>Humidity</p>
+                <i><i data-hour-hum></i>%</i>
+            </div>
+            <div class="data-set">
+                <p other-rainchance>Chance of Rain</p>
+                <i><i data-hour-rainchance></i>%</i>
             </div>
         </div>
     </template>

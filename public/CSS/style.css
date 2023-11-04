@@ -10,11 +10,16 @@ body {
     background-color: aqua;
 }
 
+main{
+    display: none;
+}
+
 .search {
     text-align: center;
     display: flex;
     align-items: center; /* Vertically center elements within the div */
     justify-content: center; /* Horizontally center elements within the div */
+    margin-top: 50%;
     height: 50px; /* Set a fixed height for the container to vertically center elements */
 }
 
@@ -40,7 +45,7 @@ body {
 }
 
 .container {
-    background-color: aquamarine;
+    background-color: aqua;
     min-width: 550px;
     max-width: 720px;
     padding: 3px 35px;
@@ -96,11 +101,11 @@ body {
     gap: 0.3%;
     margin-block: 0.4rem;
     border-radius: 10px;
-    min-width: 190px;
+    min-width: 350px;
 }
 
 .other-data img, .today img{
-    width: 2px + 2vw;
+    width: 2px + 2vh;
     margin-block: auto;
 }
 
@@ -120,12 +125,9 @@ body {
     white-space: nowrap;
 }
 
-footer{
-    position: relative;
+footer {
+    position: absolute;
+    bottom: 0;
     text-align: center;
-}
-
-.blurred {
-    filter: blur(3px);
-    overflow: hidden;
+    width: 100%; /* Optionally, set the width to 100% to span the entire width of the page. */
   }
