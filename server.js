@@ -8,6 +8,7 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
+const port = process.env.PORT || 10000;
 
 
 axios.get('http://localhost:3000/weather', { timeout: 10000 })
@@ -76,6 +77,6 @@ app.get('/weather', (request, response) =>{
     response.sendFile("E:/Progs/Webdesign/Weather_App_Project/public/mainPage.html")
 })
 
-app.listen(3000, () => {
-  console.log("Server Started");
+app.listen(port, () => {
+  console.log(`Server Started on port ${port}`);
 });
